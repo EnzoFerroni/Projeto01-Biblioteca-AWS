@@ -1,3 +1,7 @@
+# Enzo Ferroni (RA: 10417100)
+# Rafael Neves (RA: 10418316)
+# Rodrygo Vasconcellos (RA: 10381768)
+
 # Etapa 1: Usar Maven para compilar o projeto
 FROM maven:3.8.4-openjdk-17 AS build
 
@@ -8,6 +12,7 @@ WORKDIR /app
 COPY pom.xml .
 COPY .mvn/ .mvn/
 COPY mvnw mvnw
+RUN chmod +x ./mvnw
 RUN ./mvnw dependency:go-offline
 
 # Copiar o código-fonte do projeto
